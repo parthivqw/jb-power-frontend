@@ -16,6 +16,9 @@ export default {
           charcoal: '#334155',
           success: '#25D366'
         }
+      },
+      fontFamily: {
+        sans: ['Inter', 'sans-serif'],
       }
     },
   },
