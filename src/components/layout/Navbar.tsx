@@ -1,16 +1,9 @@
 import { useState } from 'react';
 import Button from '../ui/Button';
+import { SITE, NAV_LINKS } from '../../constants/content';
 
 export default function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-
-  const navLinks = [
-    { name: 'Home', href: '#' },
-    { name: 'Services', href: '#services' },
-    { name: 'Process', href: '#process' },
-    { name: 'FAQ', href: '#faq' },
-    { name: 'Contact', href: '#contact' },
-  ];
 
   return (
     <header className="sticky top-0 z-50 w-full bg-white shadow-[0_4px_20px_-4px_rgba(0,0,0,0.05)]">
@@ -20,14 +13,14 @@ export default function Navbar() {
           <a href="#" className="flex items-center gap-3">
             <div className="h-10 w-10 rounded bg-jb-gold shadow-sm flex items-center justify-center text-white font-bold text-lg">JB</div>
             <span className="text-2xl font-bold tracking-tight text-jb-navy">
-              JB Power
+              {SITE.brandName}
             </span>
           </a>
         </div>
 
         {/* Desktop Navigation */}
         <nav className="hidden md:flex md:gap-x-10">
-          {navLinks.map((link) => (
+          {NAV_LINKS.map((link) => (
             <a
               key={link.name}
               href={link.href}
@@ -40,7 +33,9 @@ export default function Navbar() {
 
         {/* Desktop CTA */}
         <div className="hidden md:block">
-          <Button size="md">Free Consultation</Button>
+          <a href="#contact">
+            <Button size="md">Get Free Consultation</Button>
+          </a>
         </div>
 
         {/* Mobile menu button */}
@@ -69,7 +64,7 @@ export default function Navbar() {
       {isMobileMenuOpen && (
         <div className="md:hidden border-t border-black/5 bg-white">
           <div className="space-y-1 px-4 pb-4 pt-4">
-            {navLinks.map((link) => (
+            {NAV_LINKS.map((link) => (
               <a
                 key={link.name}
                 href={link.href}
@@ -80,9 +75,11 @@ export default function Navbar() {
               </a>
             ))}
             <div className="mt-6 px-3">
-              <Button fullWidth size="lg">
-                Free Consultation
-              </Button>
+              <a href="#contact" className="block">
+                <Button fullWidth size="lg">
+                  Get Free Consultation
+                </Button>
+              </a>
             </div>
           </div>
         </div>

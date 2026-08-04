@@ -1,7 +1,9 @@
+import { WHATSAPP, generateWhatsAppLink } from '../../constants/content';
+
 export default function WhatsAppFab() {
   return (
     <a
-      href="#"
+      href={generateWhatsAppLink(WHATSAPP.fabMessage)}
       target="_blank"
       rel="noopener noreferrer"
       aria-label="Chat with us on WhatsApp"
