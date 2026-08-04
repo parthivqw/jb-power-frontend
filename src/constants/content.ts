@@ -51,13 +51,34 @@ export const TRUST = {
 };
 
 export const SERVICES = {
-  title: "Our Solar Solutions",
-  list: [
-    { title: "On-grid Solar", description: "Grid-tied systems ideal for lowering high electricity bills.", features: ["Net Metering", "High ROI"] },
-    { title: "Off-grid Solar", description: "Independent systems with battery backup for power cuts.", features: ["24/7 Power", "Battery Storage"] },
-    { title: "Hybrid Solar", description: "Combines grid tie with battery backup for the best of both.", features: ["Smart Switching", "Max Reliability"] },
-    { title: "3-Phase Commercial", description: "Heavy-duty systems for commercial properties.", features: ["High Capacity", "Tax Benefits"] }
+  title: "Solar Solutions Designed For Every Need",
+  paragraphs: [
+    "Whether you're looking to eliminate electricity bills for your home or power a commercial property, JB Power delivers complete rooftop solar solutions tailored to your requirements.",
+    "From consultation and system design to installation and long-term support, we manage every step so your transition to solar is simple and stress-free."
   ],
+  list: [
+    {
+      title: "Residential Rooftop Solar",
+      description: "Efficient rooftop solar systems designed for homes to reduce electricity bills and maximize government subsidy benefits.",
+      features: ["Subsidy Eligible", "Lower Electricity Bills", "Professional Installation"]
+    },
+    {
+      title: "Commercial Solar Solutions",
+      description: "Reliable solar installations for offices, shops, apartments and commercial buildings.",
+      features: ["Scalable Systems", "Energy Cost Reduction", "Long-Term ROI"]
+    },
+    {
+      title: "Hybrid & Off-Grid Systems",
+      description: "Battery-backed solar systems providing uninterrupted power even during grid outages.",
+      features: ["Battery Backup", "Continuous Power", "Smart Energy Management"]
+    },
+    {
+      title: "End-to-End Installation",
+      description: "Complete project execution from consultation and site survey to commissioning and after-sales support.",
+      features: ["Site Inspection", "Custom System Design", "Turnkey Installation"]
+    }
+  ],
+  ctaMessage: "Still unsure which solar system is right for your property?",
   cta: "Get Free Consultation"
 };
 
