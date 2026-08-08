@@ -86,6 +86,7 @@ export const SUBSIDY = {
   title: "PM Surya Ghar Subsidy",
   amount: "Up to ₹78,000",
   eligibility: "For systems 3kW and above with ALMM-listed panels.",
+  description: "JB Power assists customers with the complete paperwork and support involved in the subsidy and loan process.",
   cta: "Get Free Consultation"
 };
 
