@@ -138,11 +138,16 @@ export const FAQ = {
 
 export const CONTACT = {
   heading: "Get Your Free Consultation",
+  description: "Ready to transition to solar? Leave your details below and our team will get back to you shortly.",
   nameLabel: "Full Name",
-  namePlaceholder: "Enter your name",
+  namePlaceholder: "Enter your full name",
   phoneLabel: "Phone Number",
-  phonePlaceholder: "Enter your 10-digit number",
-  submitLabel: "Get Free Consultation"
+  phonePlaceholder: "98765 43210",
+  billLabel: "Average Monthly Electricity Bill",
+  billPlaceholder: "₹ 5,000",
+  billNote: "Optional — helps us understand your solar requirement.",
+  submitLabel: "Get Free Consultation",
+  whatsappNote: "We'll connect with you on WhatsApp.",
 };
 
 export const FOOTER = {
@@ -159,8 +164,12 @@ export const WHATSAPP = {
 };
 
 // Helper for generating the Contact Form V1 structured message
-export const generateContactFormMessage = (name: string, phone: string) => {
-  return `New Consultation Request\nName: ${name}\nPhone: ${phone}`;
+export const generateContactFormMessage = (name: string, phone: string, bill?: string) => {
+  let message = `New Consultation Request\n\nName: ${name}\nPhone: +91 ${phone}`;
+  if (bill && bill.trim() !== '') {
+    message += `\n\nAverage Monthly Electricity Bill: ₹${bill}`;
+  }
+  return message;
 };
 
 // Helper to construct wa.me link
