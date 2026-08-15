@@ -6,8 +6,9 @@ import HeroSection from './components/sections/HeroSection';
 import TrustSection from './components/sections/TrustSection';
 import ServicesSection from './components/sections/ServicesSection';
 import SubsidySection from './components/sections/SubsidySection';
-import ContactSection from './components/sections/ContactSection';
 import ProcessSection from './components/sections/ProcessSection';
+import FaqSection from './components/sections/FaqSection';
+import ContactSection from './components/sections/ContactSection';
 import WhatsAppFab from './components/sections/WhatsAppFab';
 
 export default function App() {
@@ -60,7 +61,7 @@ export default function App() {
       
       <ProcessSection />
       
-      {/* Subsequent sections will be added here in future phases */}
+      <FaqSection />
       
       <ContactSection />
       

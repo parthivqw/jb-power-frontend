@@ -138,10 +138,19 @@ export const PROCESS = {
 
 export const FAQ = {
   title: "Frequently Asked Questions",
+  description: "Answers to the questions homeowners often have before making the switch to solar.",
   questions: [
-    { q: "Will the solar panels damage my roof?", a: "No. Our installations use non-penetrating clamps for specific roof types and carefully sealed mounts to prevent any leaks or damage." },
-    { q: "How does the PM Surya Ghar subsidy work?", a: "We guide you through the entire portal process. The subsidy is credited directly to your bank account via DBT after commissioning." }
-  ]
+    { q: "How much subsidy can I get for rooftop solar?", a: "The PM Surya Ghar scheme provides government financial assistance for eligible residential rooftop solar systems, subject to the applicable scheme requirements. The maximum central assistance for eligible systems is up to ₹78,000. JB Power can help you understand the process and paperwork involved." },
+    { q: "Will solar work during monsoon or cloudy weather?", a: "Yes. Solar panels can still generate electricity when the weather is cloudy, although generation is lower when sunlight is reduced. Your actual output depends on weather conditions, system design, and available sunlight." },
+    { q: "Will installing solar damage or cause leakage on my roof?", a: "A proper installation begins with assessing the roof and the system's mounting requirements. JB Power's team can evaluate the site and plan the installation around the property's structure and rooftop requirements." },
+    { q: "How much maintenance does a solar system need?", a: "Rooftop solar systems generally require low routine maintenance. Keeping the panels clean and having the system checked periodically can help maintain reliable performance. JB Power also provides five years of free service as part of its offering." },
+    { q: "How long does a solar installation take?", a: "The overall timeline depends on the property, system requirements, approvals, and installation process. JB Power will explain the expected steps for your project during the consultation rather than giving a one-size-fits-all timeline." },
+    { q: "Do I need a battery with rooftop solar?", a: "Not necessarily. The right setup depends on your electricity usage, property, grid connection, and whether backup power is an important requirement for you. JB Power can help determine whether an on-grid, hybrid, or off-grid system is better suited to your needs." },
+    { q: "Does JB Power help with subsidy and loan paperwork?", a: "Yes. JB Power assists customers with the paperwork and process involved in subsidy applications and loan or financing support. The team can help guide you through the required steps." },
+    { q: "Which solar system is right for my home?", a: "The right system depends on factors such as your electricity usage, available roof space, property requirements, and whether you need backup power. JB Power can assess your requirements and help you choose between suitable on-grid, hybrid, or off-grid options." }
+  ],
+  ctaMessage: "Still have questions?",
+  cta: "Get Free Consultation"
 };
 
 export const CONTACT = {
