@@ -6,13 +6,16 @@ import imgPanel from '../../assets/images/trust/panel-warranty.jpg';
 import imgInverter from '../../assets/images/trust/inverter-warranty.jpg';
 import imgPaperwork from '../../assets/images/trust/paperwork-support.jpg';
 import imgService from '../../assets/images/trust/free-service.jpg';
+import { useScrollReveal } from '../../hooks/useScrollReveal';
 
 const trustImages = [imgPanel, imgInverter, imgPaperwork, imgService];
 
 export default function TrustSection() {
+  const revealRef = useScrollReveal<HTMLDivElement>();
+
   return (
     <section className="bg-white py-16 md:py-20">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div ref={revealRef} className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 reveal-hidden">
         
         {/* Section Intro */}
         <div className="text-center mb-12">
@@ -23,7 +26,7 @@ export default function TrustSection() {
         {/* 4 Trust Cards */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8 mb-20">
           {TRUST.cards.map((card, idx) => (
-            <Card key={idx} className="flex flex-col h-full border-none bg-jb-white-warm">
+            <Card key={idx} className="flex flex-col h-full border-none bg-jb-white-warm stagger-item reveal-hidden">
               {/* Image Header (breaking out of padding) */}
               <div className="-mx-6 -mt-6 md:-mx-8 md:-mt-8 mb-6 overflow-hidden rounded-t-2xl aspect-[4/3]">
                 <img 
@@ -65,7 +68,7 @@ export default function TrustSection() {
             <h2 className="text-3xl font-extrabold text-jb-navy mb-8 text-center">What Our Clients Say</h2>
             <div className="space-y-6">
               {TRUST.testimonials.map((testimonial) => (
-                <Card key={testimonial.id} className="bg-jb-white-warm border-none">
+                <Card key={testimonial.id} className="bg-jb-white-warm border-none stagger-item reveal-hidden">
                   <p className="text-jb-charcoal/80 italic mb-4">"{testimonial.text}"</p>
                   <p className="text-jb-navy font-semibold text-sm tracking-wide uppercase">- {testimonial.name}</p>
                 </Card>

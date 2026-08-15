@@ -2,11 +2,14 @@ import Card from '../ui/Card';
 import Badge from '../ui/Badge';
 import Button from '../ui/Button';
 import { SUBSIDY } from '../../constants/content';
+import { useScrollReveal } from '../../hooks/useScrollReveal';
 
 export default function SubsidySection() {
+  const revealRef = useScrollReveal<HTMLDivElement>();
+
   return (
-    <section id="subsidy" className="py-20 bg-jb-white-warm">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="subsidy" className="py-20 bg-jb-white-warm scroll-mt-20">
+      <div ref={revealRef} className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 reveal-hidden">
         <div className="max-w-3xl mx-auto text-center">
           <Badge variant="accent" className="mb-6 uppercase tracking-wider">
             Government Support

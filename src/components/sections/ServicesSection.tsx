@@ -1,6 +1,7 @@
 import Card from '../ui/Card';
 import Button from '../ui/Button';
 import { SERVICES } from '../../constants/content';
+import { useScrollReveal } from '../../hooks/useScrollReveal';
 
 // Import generated images
 import imgResidential from '../../assets/images/services/residential.jpg';
@@ -11,9 +12,11 @@ import imgInstallation from '../../assets/images/services/installation.jpg';
 const serviceImages = [imgResidential, imgCommercial, imgHybrid, imgInstallation];
 
 export default function ServicesSection() {
+  const revealRef = useScrollReveal<HTMLDivElement>();
+
   return (
-    <section id="services" className="bg-jb-sand py-20 md:py-28">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <section id="services" className="bg-jb-sand py-20 md:py-28 scroll-mt-20">
+      <div ref={revealRef} className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 reveal-hidden">
         
         {/* Heading & Intro */}
         <div className="max-w-3xl mx-auto text-center mb-20">
@@ -30,7 +33,7 @@ export default function ServicesSection() {
         {/* 4-Card Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-12 mb-20">
           {SERVICES.list.map((service, idx) => (
-            <Card key={idx} className="flex flex-col h-full border-none">
+            <Card key={idx} className="flex flex-col h-full border-none stagger-item reveal-hidden">
               {/* Image Header (breaking out of padding) */}
               <div className="-mx-6 -mt-6 md:-mx-8 md:-mt-8 mb-8 overflow-hidden rounded-t-2xl aspect-[16/9]">
                 <img 
