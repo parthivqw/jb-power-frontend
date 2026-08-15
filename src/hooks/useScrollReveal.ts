@@ -34,7 +34,7 @@ export function useScrollReveal<T extends HTMLElement>() {
               setTimeout(() => {
                 item.classList.add('reveal-visible');
                 item.classList.remove('reveal-hidden');
-              }, index * 75);
+              }, index * 100);
             });
             
             observer.unobserve(entry.target);
