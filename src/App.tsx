@@ -7,6 +7,7 @@ import TrustSection from './components/sections/TrustSection';
 import ServicesSection from './components/sections/ServicesSection';
 import SubsidySection from './components/sections/SubsidySection';
 import ContactSection from './components/sections/ContactSection';
+import ProcessSection from './components/sections/ProcessSection';
 import WhatsAppFab from './components/sections/WhatsAppFab';
 
 export default function App() {
@@ -56,6 +57,9 @@ export default function App() {
       <TrustSection />
       <ServicesSection />
       <SubsidySection />
+      
+      <ProcessSection />
+      
       {/* Subsequent sections will be added here in future phases */}
       
       <ContactSection />

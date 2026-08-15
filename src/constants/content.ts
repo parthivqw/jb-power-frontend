@@ -128,10 +128,10 @@ export const SUBSIDY = {
 export const PROCESS = {
   title: "How It Works",
   steps: [
-    { title: "Consultation", description: "We assess your site and energy needs." },
-    { title: "Design", description: "Custom system design tailored to your roof." },
-    { title: "Installation", description: "Expert installation by our skilled technicians." },
-    { title: "Commissioning", description: "Net metering setup and subsidy assistance." }
+    { title: "Consultation", description: "Start with a conversation about your property, energy needs, and what you want your solar system to achieve." },
+    { title: "Site Assessment & Design", description: "We assess the site and roof requirements to design a solar system suited to your property." },
+    { title: "Installation", description: "Our team carries out the installation and system setup with a focus on a smooth, professional process." },
+    { title: "Commissioning & Support", description: "Once the system is ready, we help get it up and running and continue supporting you after installation." }
   ],
   cta: "Get Free Consultation"
 };
