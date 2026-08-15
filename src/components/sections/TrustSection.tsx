@@ -1,17 +1,43 @@
 import Card from '../ui/Card';
 import { TRUST } from '../../constants/content';
 
+// Import generated trust images
+import imgPanel from '../../assets/images/trust/panel-warranty.jpg';
+import imgInverter from '../../assets/images/trust/inverter-warranty.jpg';
+import imgPaperwork from '../../assets/images/trust/paperwork-support.jpg';
+import imgService from '../../assets/images/trust/free-service.jpg';
+
+const trustImages = [imgPanel, imgInverter, imgPaperwork, imgService];
+
 export default function TrustSection() {
   return (
     <section className="bg-white py-16 md:py-20">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         
-        {/* Warranties */}
-        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4 mb-16">
-          {TRUST.warranties.map((warranty, idx) => (
-            <Card key={idx} className="text-center bg-jb-white-warm border-none">
-              <h3 className="text-jb-navy font-bold text-lg mb-2">{warranty.name}</h3>
-              <p className="text-jb-gold-deep font-semibold">{warranty.value}</p>
+        {/* Section Intro */}
+        <div className="text-center mb-12">
+          <p className="text-jb-gold-deep font-bold tracking-wider uppercase text-sm mb-2">{TRUST.intro}</p>
+          <h2 className="text-3xl md:text-4xl font-extrabold text-jb-navy">Quality You Can Trust</h2>
+        </div>
+
+        {/* 4 Trust Cards */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8 mb-20">
+          {TRUST.cards.map((card, idx) => (
+            <Card key={idx} className="flex flex-col h-full border-none bg-jb-white-warm">
+              {/* Image Header (breaking out of padding) */}
+              <div className="-mx-6 -mt-6 md:-mx-8 md:-mt-8 mb-6 overflow-hidden rounded-t-2xl aspect-[4/3]">
+                <img 
+                  src={trustImages[idx]} 
+                  alt={card.title} 
+                  className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
+                />
+              </div>
+              
+              {/* Card Content */}
+              <div className="flex flex-col flex-grow">
+                <h3 className="text-xl font-bold text-jb-navy mb-3">{card.title}</h3>
+                <p className="text-jb-charcoal/80 text-sm leading-relaxed">{card.description}</p>
+              </div>
             </Card>
           ))}
         </div>

@@ -34,19 +34,32 @@ export const HERO = {
 };
 
 export const TRUST = {
-  warranties: [
-    { name: "Panel Performance Warranty", value: "30 Years" },
-    { name: "Inverter Warranty", value: "10 Years" },
-    { name: "Installation Warranty", value: "[PLACEHOLDER: Pending Verification]" },
-    { name: "Free Service Period", value: "5 Years" }
+  intro: "Built for long-term confidence",
+  cards: [
+    {
+      title: "30-Year Panel Warranty",
+      description: "Long-term panel protection designed to give homeowners confidence in their solar investment."
+    },
+    {
+      title: "10-Year Inverter Warranty",
+      description: "Protection for the key electrical hardware powering your solar system."
+    },
+    {
+      title: "We Handle the Paperwork",
+      description: "JB Power assists with the paperwork involved in subsidy and loan processes."
+    },
+    {
+      title: "5 Years Free Service",
+      description: "Continued service support after installation to help keep your system running smoothly."
+    }
   ],
   brands: [
     { name: "[PLACEHOLDER: Brand Logo 1]" },
     { name: "[PLACEHOLDER: Brand Logo 2]" }
   ],
   testimonials: [
-    { id: 1, name: "[PLACEHOLDER: Customer Name 1]", text: "[PLACEHOLDER: Testimonial Text 1]" },
-    { id: 2, name: "[PLACEHOLDER: Customer Name 2]", text: "[PLACEHOLDER: Testimonial Text 2]" }
+    { id: 1, name: "Pending Verification", text: "Sample testimonial — final customer feedback to be added after founder review." },
+    { id: 2, name: "Pending Verification", text: "Sample customer feedback will be replaced with verified JB Power testimonials before public launch." }
   ]
 };
 
