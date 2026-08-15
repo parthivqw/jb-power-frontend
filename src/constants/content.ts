@@ -3,13 +3,13 @@
 export const SITE = {
   brandName: "JB Power",
   tagline: "End-to-end solar solutions for residential and commercial properties. Powering a sustainable future with precision engineering.",
-  phone: "[PLACEHOLDER: Founder Phone Number]",
-  addressLine1: "[PLACEHOLDER: Physical Address Line 1]",
-  addressLine2: "[PLACEHOLDER: Physical Address Line 2]",
+  founderName: "Jobison Manual",
+  phone: "+91 81293 75234",
+  email: "jobisanmj07@gmail.com",
   operatingAreas: [
-    "[PLACEHOLDER: Operating Area 1]",
-    "[PLACEHOLDER: Operating Area 2]",
-    "[PLACEHOLDER: Operating Area 3]"
+    "Alappuzha, Kerala",
+    "Kochi, Kerala",
+    "Across Kerala, India"
   ]
 };
 
@@ -176,7 +176,7 @@ export const FOOTER = {
 };
 
 export const WHATSAPP = {
-  phoneNumber: "910000000000", // [PLACEHOLDER: Founder WhatsApp Number]
+  phoneNumber: "918129375234",
   fabMessage: "Hi, I'd like to know more about JB Power's solar installation services."
 };
 
