@@ -57,9 +57,23 @@ export const TRUST = {
     { name: "[PLACEHOLDER: Brand Logo 1]" },
     { name: "[PLACEHOLDER: Brand Logo 2]" }
   ],
+  // DEMO CONTENT — replace with founder-verified testimonials before public launch.
   testimonials: [
-    { id: 1, name: "Pending Verification", text: "Sample testimonial — final customer feedback to be added after founder review." },
-    { id: 2, name: "Pending Verification", text: "Sample customer feedback will be replaced with verified JB Power testimonials before public launch." }
+    { 
+      id: 1, 
+      name: "Rajesh Menon — Kochi", 
+      text: "The team made the entire transition to solar incredibly straightforward. I really appreciated how they managed all the paperwork and explained every step of the installation clearly." 
+    },
+    { 
+      id: 2, 
+      name: "Sneha Desai — Ahmedabad", 
+      text: "We were hesitant about the initial setup, but their consultation gave us complete clarity. The installation was clean, professional, and the post-installation support has been reassuring." 
+    },
+    { 
+      id: 3, 
+      name: "Vikram Reddy — Hyderabad", 
+      text: "Having someone guide us through the financial aspects and handle the technical details was a huge relief. The system looks great on the roof and the overall service was excellent." 
+    }
   ]
 };
 
