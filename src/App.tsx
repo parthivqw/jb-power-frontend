@@ -14,18 +14,10 @@ export default function App() {
     const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
     if (mediaQuery.matches) return;
 
-    // Initialize Lenis for a premium scroll glide
+    // Initialize Lenis: autoRaf prevents double-tick jitter, default lerp restores snappy feel
     const lenis = new Lenis({
-      lerp: 0.07, // Gentle wheel scroll smoothing
-      wheelMultiplier: 1,
+      autoRaf: true,
     });
-
-    let animationFrameId: number;
-    function raf(time: number) {
-      lenis.raf(time);
-      animationFrameId = requestAnimationFrame(raf);
-    }
-    animationFrameId = requestAnimationFrame(raf);
 
     // Intercept anchor clicks to use Lenis scrollTo
     const handleAnchorClick = (e: MouseEvent) => {
@@ -37,16 +29,12 @@ export default function App() {
           e.preventDefault();
           
           if (href === '#') {
-            lenis.scrollTo(0, { duration: 0.8 });
+            lenis.scrollTo(0, { duration: 0.6 });
           } else {
             const targetEl = document.querySelector(href) as HTMLElement | null;
             if (targetEl) {
-              // Calculate dynamic duration: short jumps are faster, long jumps approach ~1000ms
-              const distance = Math.abs(targetEl.getBoundingClientRect().top);
-              const duration = Math.min(Math.max(distance / 2500, 0.6), 1.1);
-              
-              // Offset by -80px to accommodate the sticky Navbar (h-20)
-              lenis.scrollTo(targetEl, { offset: -80, duration });
+              // Snappy 0.6s duration with -80px offset for the sticky Navbar
+              lenis.scrollTo(targetEl, { offset: -80, duration: 0.6 });
             }
           }
         }
@@ -56,7 +44,6 @@ export default function App() {
     document.addEventListener('click', handleAnchorClick);
 
     return () => {
-      cancelAnimationFrame(animationFrameId);
       document.removeEventListener('click', handleAnchorClick);
       lenis.destroy();
     };
