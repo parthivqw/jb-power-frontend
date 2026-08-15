@@ -110,10 +110,18 @@ export const SERVICES = {
 };
 
 export const SUBSIDY = {
+  badge: "Government Support",
   title: "PM Surya Ghar Subsidy",
   amount: "Up to ₹78,000",
-  eligibility: "For systems 3kW and above with ALMM-listed panels.",
-  description: "JB Power assists customers with the complete paperwork and support involved in the subsidy and loan process.",
+  eligibility: "For eligible residential solar systems (subject to applicable scheme requirements).",
+  assistanceHeading: "JB Power Helps With the Process",
+  assistanceList: [
+    "Subsidy paperwork & process support",
+    "Loan / financing paperwork support",
+    "Guidance through the required steps"
+  ],
+  nextStepTitle: "Ready to explore your solar options?",
+  nextStepDescription: "Start with a free consultation. We will assess your requirement and guide you through the process.",
   cta: "Get Free Consultation"
 };
 
