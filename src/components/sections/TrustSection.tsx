@@ -17,9 +17,11 @@ export default function TrustSection() {
         </div>
 
         {/* Gallery & Testimonials */}
-        <div className="lg:grid lg:grid-cols-12 lg:gap-16 items-start">
+        {/* Temporarily disabling the grid layout until gallery assets are ready */}
+        {/* <div className="lg:grid lg:grid-cols-12 lg:gap-16 items-start"> */}
+        <div className="max-w-3xl mx-auto">
           
-          {/* Gallery Placeholder */}
+          {/* Gallery Placeholder (HIDDEN PENDING ASSETS)
           <div className="lg:col-span-7 mb-12 lg:mb-0">
             <h2 className="text-3xl font-extrabold text-jb-navy mb-8">Trusted Installations</h2>
             <div className="grid grid-cols-2 gap-4">
@@ -30,10 +32,11 @@ export default function TrustSection() {
               ))}
             </div>
           </div>
+          */}
 
           {/* Testimonials */}
-          <div className="lg:col-span-5">
-            <h2 className="text-3xl font-extrabold text-jb-navy mb-8">What Our Clients Say</h2>
+          <div className="w-full">
+            <h2 className="text-3xl font-extrabold text-jb-navy mb-8 text-center">What Our Clients Say</h2>
             <div className="space-y-6">
               {TRUST.testimonials.map((testimonial) => (
                 <Card key={testimonial.id} className="bg-jb-white-warm border-none">
@@ -46,7 +49,7 @@ export default function TrustSection() {
           
         </div>
 
-        {/* Brands We Use */}
+        {/* Brands We Use (HIDDEN PENDING ASSETS)
         <div className="mt-16 pt-16 border-t border-black/5">
           <p className="text-center text-sm font-semibold text-jb-charcoal tracking-wide uppercase mb-8">Brands We Use</p>
           <div className="flex flex-wrap justify-center gap-8 md:gap-16 opacity-60">
@@ -57,6 +60,7 @@ export default function TrustSection() {
             ))}
           </div>
         </div>
+        */}
 
       </div>
     </section>

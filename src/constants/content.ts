@@ -29,16 +29,16 @@ export const HERO = {
   secondaryCta: "Check Your Subsidy",
   trustIndicators: [
     { label: "[PLACEHOLDER: MNRE Empanelled]" },
-    { label: "[PLACEHOLDER: 25-Year Warranty]" }
+    { label: "30-Year Panel Warranty" }
   ]
 };
 
 export const TRUST = {
   warranties: [
-    { name: "Panel Performance Warranty", value: "[PLACEHOLDER: 25 Years]" },
-    { name: "Inverter Warranty", value: "[PLACEHOLDER: X Years]" },
-    { name: "Installation Warranty", value: "[PLACEHOLDER: X Years]" },
-    { name: "Free Service Period", value: "[PLACEHOLDER: X Years/Months]" }
+    { name: "Panel Performance Warranty", value: "30 Years" },
+    { name: "Inverter Warranty", value: "10 Years" },
+    { name: "Installation Warranty", value: "[PLACEHOLDER: Pending Verification]" },
+    { name: "Free Service Period", value: "5 Years" }
   ],
   brands: [
     { name: "[PLACEHOLDER: Brand Logo 1]" },

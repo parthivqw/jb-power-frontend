@@ -1,189 +1,821 @@
-# JB Power V1: Implementation Roadmap
+B Power V1 — Frontend Implementation Roadmap
 
-## 1. V1 Scope
+1. V1 Product Definition
 
-### In Scope
-*   Single responsive landing page (no routing)
-*   Sections: Hero, Trust, Services, Subsidy, Process, FAQ, Contact Form, Footer
-*   Contact Form as sole conversion endpoint (all primary CTAs scroll to form)
-*   Contact Form V1 submit handler routes to WhatsApp with structured data
-*   WhatsApp FAB as persistent direct-WhatsApp channel
-*   Mobile-first responsive design
-*   Basic SEO (title, meta description, OG tags)
-*   Static content (no CMS, no dynamic data)
+Objective
 
-### Out of Scope
-*   Backend API, lead storage, CRM integrations
-*   E-commerce functionality
-*   Dynamic cost/savings calculators (use static content)
-*   User login / dashboard
-*   Admin panel
-*   Multi-page routing (About Us, Blog, etc.)
-*   Contact forms that submit to email or a database (V1 routes to WhatsApp)
-*   Animations library (Framer Motion, etc.)
+Build a production-quality single-page responsive frontend for JB Power that communicates the company's solar offering, builds trust, explains financial/government support, removes customer objections, and drives qualified enquiries through WhatsApp.
 
----
+Frontend V1 → Founder Review → Content/Asset Finalization → Production
 
-## 2. Phase Structure
+In Scope
 
-Development follows a strict linear sequence. Each phase must be completed before the next begins.
+Single responsive landing page
 
-### Phase 0: Foundation ✅ COMPLETE
+Hero, Trust, Services, Subsidy & Financial Support, How It Works, FAQ, Contact, Footer
 
-**Purpose:** Initialize the project and toolchain.
+Persistent WhatsApp FAB
 
-*   [x] Vite + React + TypeScript initialization
-*   [x] Tailwind CSS configuration
-*   [x] ESLint + Prettier configuration
-*   [x] Repository structure scaffolded
-*   [x] `.gitignore` configured
-*   [x] GitHub repository created
+Smooth-scroll navigation
 
-### Phase 1: Shell & Visual Identity ✅ COMPLETE
+WhatsApp-based V1 lead submission
 
-**Purpose:** Establish the structural layout and design language.
+Mobile-first responsive design
 
-*   [x] `Layout.tsx` — page wrapper (Navbar + children + Footer)
-*   [x] `Navbar.tsx` — sticky header, responsive, mobile hamburger menu
-*   [x] `Footer.tsx` — 4-column responsive footer
-*   [x] `WhatsAppFab.tsx` — floating action button (visual shell)
-*   [x] `Button.tsx` — reusable component (primary, secondary, outline)
-*   [x] `HeroSection.tsx` — headline, CTAs, trust indicators, hero image
-*   [x] Design tokens defined in `tailwind.config.js`
-*   [x] `npm run build` verified
-*   [x] `npm run dev` verified
+Basic SEO
 
-### Phase 2: Infrastructure Hardening ⚪ NOT STARTED
+Static, centralized content
 
-**Purpose:** Establish the technical infrastructure that all subsequent sections depend on. This phase produces no new visual sections but makes everything that follows correct.
+Founder-provided asset integration during finalization
 
-**Must be completed before Phase 3.**
+Out of Scope
 
-Deliverables:
-*   [ ] **SEO setup** — Update `index.html`: title, meta description, OG tags
-*   [ ] **Package identity** — Update `package.json` name from `temp-vite` to `jb-power-frontend`
-*   [ ] **Font integration** — Add Inter via Google Fonts to `index.html` and Tailwind config
-*   [ ] **Content centralization** — Create `constants/content.ts` with all site copy, placeholder values, and WhatsApp config. Migrate hardcoded strings from existing components.
-*   [ ] **WhatsApp FAB integration** — Wire FAB to real `wa.me` link using centralized config. The FAB is the ONLY element that opens WhatsApp directly.
-*   [ ] **Navigation alignment** — Update navbar links to match documented architecture: Home, Services, Subsidy, How It Works, FAQ. CTA button: "Get Free Consultation" → `#contact`.
-*   [ ] **CTA compliance** — Unify all primary CTA copy to "Get Free Consultation". All primary CTAs smooth scroll to `#contact`. Change Hero secondary CTA from "Calculate Savings" to "Check Your Subsidy" (scroll to `#subsidy`). Note: the `#contact` target section is built in Phase 3f; CTAs may scroll to a non-existent anchor during Phase 3a–3e development. This is expected.
-*   [ ] **Trust indicator compliance** — Replace unverified claims (MNRE, warranty) with placeholder notation or remove until founder confirms. See `01-product-blueprint.md` Section 9.
-*   [ ] **Scaffold cleanup** — Remove leftover Vite files (`src/assets/hero.png`, `react.svg`, `vite.svg`)
+Backend API, lead database, CRM
 
-**Acceptance Criteria:**
-*   All user-facing text sourced from `content.ts`
-*   WhatsApp FAB links to real `wa.me` URL
-*   All primary CTAs display "Get Free Consultation" and target `#contact`
-*   `index.html` has correct title, description, and OG tags
-*   No unverified claims displayed as fact
-*   `npm run build` passes
-*   `grep -r "PLACEHOLDER" src/constants/` returns only items pending founder input
+Authentication or dashboard/admin panel
 
-### Phase 3: Homepage Sections ⚪ NOT STARTED
+CMS or e-commerce
 
-**Purpose:** Build the conversion funnel, section by section, in strict top-to-bottom page order.
+Dynamic solar/subsidy calculators
 
-Each section follows the same implementation pattern:
-1.  Add section content to `constants/content.ts`
-2.  Build any required UI components (Card, Badge, Accordion) if not yet created
-3.  Implement the section component using design tokens exclusively
-4.  Apply the documented section background from `02-frontend-architecture.md` Section 5
-5.  Add a section-level conversion CTA where specified (see `01-product-blueprint.md` Section 11)
-6.  Add section `id` attribute matching the nav anchor
-7.  Import and render the section in `App.tsx` in the correct page order
+Multi-page routing
 
-Build order (matches page flow — Hero is already built in Phase 1):
+Email/database form submission
 
-**3a. Trust Section**
-*   [ ] Installation gallery (placeholder images until founder provides real photos)
-*   [ ] Warranty breakdown (categories from `01-product-blueprint.md` Section 7, with placeholders for unverified values)
-*   [ ] Brand logos ("Brands We Use" — placeholders until provided)
-*   [ ] Testimonials (placeholder cards until founder provides 2–3 real testimonials)
-*   [ ] Background: `white`
-*   [ ] No section `id` needed (not in navigation)
-*   [ ] Required UI: `Card.tsx`
+Animation libraries such as Framer Motion
 
-**3b. Services Section**
-*   [ ] Service cards: On-grid, Off-grid, Hybrid, 3-Phase
-*   [ ] Each card: title, brief description, key features
-*   [ ] Conversion CTA: "Get Free Consultation" → scroll to `#contact`
-*   [ ] Background: `jb-sand`
-*   [ ] Section id: `services`
-*   [ ] Required UI: `Card.tsx`
+Backend implementation
 
-**3c. Subsidy Section**
-*   [ ] Highlight PM Surya Ghar subsidy (up to ₹78,000 for 3kW+)
-*   [ ] Clear breakdown of financial benefit
-*   [ ] Conversion CTA: "Get Free Consultation" → scroll to `#contact`
-*   [ ] Background: `jb-white-warm`
-*   [ ] Section id: `subsidy`
-*   [ ] Required UI: `Card.tsx`, `Badge.tsx`
+2. Page Architecture
 
-**3d. Process Section**
-*   [ ] 4-step "How It Works" flow (Consultation → Design → Installation → Commissioning)
-*   [ ] Visual step indicators (numbered cards or timeline)
-*   [ ] Conversion CTA: "Get Free Consultation" → scroll to `#contact`
-*   [ ] Background: `white`
-*   [ ] Section id: `process`
-*   [ ] Required UI: `Card.tsx`
+The page architecture is locked:
 
-**3e. FAQ Section**
-*   [ ] 6–10 questions addressing common objections (monsoon durability, roof damage, maintenance, subsidy process, timeline)
-*   [ ] Expandable accordion UI
-*   [ ] Background: `jb-sand`
-*   [ ] Section id: `faq`
-*   [ ] Required UI: `Accordion.tsx`
+HERO
+  ↓
+TRUST
+  ↓
+SERVICES
+  ↓
+SUBSIDY & FINANCIAL SUPPORT
+  ↓
+HOW IT WORKS
+  ↓
+FAQ
+  ↓
+CONTACT / LEAD FORM
+  ↓
+FOOTER
 
-**3f. Contact Section**
-*   [ ] Section heading (e.g., "Get Your Free Consultation")
-*   [ ] Simple enquiry form: Name (required), Phone (required)
-*   [ ] Submit button: "Get Free Consultation"
-*   [ ] V1 submit handler: construct structured WhatsApp message from form data, open `wa.me` (see `02-frontend-architecture.md` Section 7)
-*   [ ] Future: swap submit handler to `POST /leads` — no UI changes required
-*   [ ] Background: `jb-white-warm`
-*   [ ] Section id: `contact`
-*   [ ] No additional UI components needed (uses `Button.tsx` + native form inputs styled with design tokens)
+Navigation
 
-**Acceptance Criteria:**
-*   All sections render in `App.tsx` in correct page order: Hero → Trust → Services → Subsidy → Process → FAQ → Contact → Footer
-*   All section `id` attributes match navbar anchor links
-*   All section backgrounds follow the documented rhythm in `02-frontend-architecture.md` Section 5
-*   All copy sourced from `content.ts`
-*   All primary CTAs scroll to `#contact`
-*   Contact Form submit constructs WhatsApp message and opens `wa.me`
-*   `npm run build` passes
-*   Page scrolls naturally from Hero through Footer
+Navigation item
 
-### Phase 4: Polish & Launch ⚪ NOT STARTED
+Destination
 
-**Purpose:** Production readiness and founder approval.
+Home
 
-*   [ ] Responsive testing — mobile (375px), tablet (768px), desktop (1280px+)
-*   [ ] Accessibility audit — WCAG 2.1 AA compliance (contrast, focus states, alt text, semantic HTML)
-*   [ ] Google Lighthouse — target >90 on Performance, Accessibility, Best Practices
-*   [ ] Image optimization — compress, convert to WebP where possible, lazy load below-fold images
-*   [ ] Real asset integration — replace all placeholder images, logo, testimonials, contact info with founder-provided assets
-*   [ ] Final copy review — founder reviews all text in `content.ts`
-*   [ ] Founder sign-off — staging link reviewed and approved
+#hero / top
 
-**Acceptance Criteria (V1 Definition of Done):**
-*   The page matches the documented emotional progression (Hope → Trust → Confidence → Opportunity → Relief → Clarity → Action)
-*   Fully mobile-responsive with no layout breaks
-*   Every primary CTA scrolls to the Contact Form
-*   Contact Form submits structured data via WhatsApp
-*   WhatsApp FAB opens WhatsApp with general enquiry message
-*   Google Lighthouse >90 on all four categories
-*   All `[PLACEHOLDER]` values replaced with real data or section hidden
-*   Founder has reviewed the staging link and signed off
+Services
 
----
+#services
 
-## 3. UI Component Build Strategy
+Subsidy
 
-UI components (`Card.tsx`, `Badge.tsx`, `Accordion.tsx`) are built **on-demand** — when the first section that needs them is implemented. Do not build abstract components before their first consumer exists.
+#subsidy
 
-| Component | First Needed By | Notes |
-| :--- | :--- | :--- |
-| `Card.tsx` | Trust Section (3a) | Reused in Services, Subsidy, Process |
-| `Badge.tsx` | Subsidy Section (3c) | Used for subsidy amounts, certifications |
-| `Accordion.tsx` | FAQ Section (3e) | Single-use for FAQ |
+How It Works
+
+#process
+
+FAQ
+
+#faq
+
+Get Free Consultation
+
+#contact
+
+CTA rules
+
+All primary conversion CTAs use Get Free Consultation and smoothly scroll to #contact.
+
+The Hero secondary CTA Check Your Subsidy scrolls to #subsidy. It does not imply that V1 contains an eligibility calculator.
+
+3. Implementation Status
+
+Phase 0 — Foundation ✅ COMPLETE
+
+Vite + React + TypeScript
+
+Tailwind CSS
+
+ESLint
+
+Prettier
+
+Repository structure
+
+.gitignore
+
+GitHub repository
+
+Phase 1 — Shell & Visual Identity ✅ COMPLETE
+
+Layout.tsx
+
+Navbar.tsx
+
+Footer.tsx
+
+WhatsAppFab.tsx
+
+Button.tsx
+
+HeroSection.tsx
+
+Design tokens
+
+Responsive shell
+
+Production build verification
+
+Visual direction
+
+Deep navy
+
+JB gold
+
+Warm white/sand backgrounds
+
+Large typography
+
+Full-bleed imagery
+
+Image and typography treated as one composition
+
+Clean, premium residential aesthetic
+
+Phase 2 — Infrastructure Hardening ⚠️ FOUNDATION / VERIFY
+
+This phase introduces no new visual sections.
+
+Deliverables
+
+Verify SEO metadata: title, description, OG tags
+
+Verify package identity: jb-power-frontend
+
+Verify Inter font integration
+
+Verify all user-facing copy is centralized in constants/content.ts
+
+Verify WhatsApp configuration is centralized
+
+Verify WhatsApp FAB destination
+
+Verify navbar anchors
+
+Verify consistent primary CTA copy
+
+Remove obsolete Vite scaffold files
+
+Verify npm run build
+
+Verify TypeScript/lint
+
+Important: Phase 2 is an infrastructure verification gate, not a reason to rebuild completed sections.
+
+Phase 3 — Homepage Conversion Funnel
+
+3a — Trust & Credibility ✅ IMPLEMENTED — REFINEMENT LATER
+
+Purpose
+
+Answer: “Why should I trust JB Power?”
+
+Current implementation
+
+Warranty/value card structure
+
+Installation gallery structure
+
+Testimonials structure
+
+Brands section structure
+
+Card.tsx
+
+Integrated into App.tsx
+
+Production build verified
+
+Founder-provided information
+
+30-year solar panel warranty
+
+10-year inverter warranty
+
+5 years free service
+
+Pending founder confirmation
+
+Installation warranty, if applicable
+
+Exact warranty wording/conditions
+
+Exact scope of “5 years free service”
+
+Real installation photographs
+
+Real testimonials
+
+Actual brands/manufacturers
+
+Additional trust claims
+
+Production rule
+
+Do not invent missing claims. Unverified items are either temporary development placeholders or removed before production.
+
+3b — Services ✅ IMPLEMENTED
+
+Purpose
+
+Answer: “What does JB Power actually provide?”
+
+Implemented service cards
+
+Residential Rooftop Solar
+
+Commercial Solar Solutions
+
+Hybrid & Off-Grid Systems
+
+End-to-End Installation
+
+Current implementation
+
+Four service cards
+
+Image-led card composition
+
+Descriptions
+
+Key features
+
+CTA
+
+#services
+
+Card.tsx
+
+Production build verified
+
+Cards use imagery + text as a unified composition, following the visual principle established by the Hero.
+
+3c — Subsidy & Financial Support ✅ BASE IMPLEMENTATION / REFINEMENT LATER
+
+Purpose
+
+Answer: “How does going solar become financially easier, and what does JB Power help me with?”
+
+Government benefit
+
+PM Surya Ghar subsidy — up to ₹78,000 for eligible 3kW+ systems.
+
+JB Power support communicated by founder
+
+Subsidy paperwork/process support
+
+Loan/financing paperwork support
+
+Founder-provided customer benefits
+
+These are distinct from the government subsidy:
+
+5 years free service
+
+30-year panel warranty
+
+10-year inverter warranty
+
+Current implementation
+
+SubsidySection.tsx
+
+Badge.tsx
+
+₹78,000 highlight
+
+Government Support badge
+
+JB Power paperwork/support statement
+
+CTA → #contact
+
+#subsidy
+
+Production build verified
+
+Planned refinement
+
+Before production, evaluate whether this section should become a broader Subsidy & Financial Support story:
+
+Government Support
+       ↓
+Up to ₹78,000 subsidy
+
+       +
+
+JB Power Assistance
+       ↓
+Subsidy paperwork
+Loan/financing support
+
+       +
+
+JB Power Value
+       ↓
+5 years free service
+30-year panel warranty
+10-year inverter warranty
+
+Avoid duplicating warranty information unnecessarily.
+
+3d — How It Works ⏳ NEXT
+
+Purpose
+
+Answer: “What actually happens after I contact JB Power?”
+
+Required flow
+
+01 Consultation
+       ↓
+02 Site Assessment / Design
+       ↓
+03 Installation
+       ↓
+04 Commissioning & Support
+
+Deliverables
+
+Add process content to content.ts
+
+Implement numbered process cards/timeline
+
+Visually connect the stages
+
+Keep interaction lightweight
+
+CTA → #contact
+
+Section id → process
+
+Background → white
+
+Reuse Card.tsx
+
+Design principle
+
+Communicate simplicity, not engineering complexity. The customer should leave thinking:
+
+“These guys handle the process.”
+
+3e — FAQ ⏳
+
+Purpose
+
+Answer remaining customer objections.
+
+Target
+
+6–10 questions covering:
+
+Monsoon/weather durability
+
+Roof damage
+
+Maintenance
+
+Subsidy process
+
+Loan/financing process
+
+Installation timeline
+
+Warranty
+
+Free service
+
+What happens after installation
+
+General solar concerns
+
+Deliverables
+
+Add FAQ content to content.ts
+
+Build Accordion.tsx
+
+Expand/collapse interaction
+
+Keyboard-accessible interaction
+
+Section id → faq
+
+Background → jb-sand
+
+Every FAQ should eliminate an actual customer objection.
+
+3f — Contact / Lead Capture ⏳
+
+Purpose
+
+This is the primary conversion endpoint of V1.
+
+Form
+
+Required:
+
+Name
+
+Phone
+
+Submission flow
+
+User submits form
+        ↓
+Frontend validates fields
+        ↓
+Structured WhatsApp message generated
+        ↓
+WhatsApp opens
+        ↓
+Founder receives lead
+
+Example message
+
+New JB Power Consultation
+
+Name: [Name]
+Phone: [Phone]
+
+Source: Website
+Enquiry: Free Consultation
+
+Deliverables
+
+Contact section
+
+Native form inputs
+
+Validation
+
+Submit handler
+
+Structured WhatsApp message
+
+#contact
+
+CTA integration across page
+
+Mobile testing
+
+No backend is required for this V1 flow.
+
+4. Founder Review & Production Polish
+
+The frontend is not considered publicly production-final immediately after Phase 3.
+
+Frontend Build Complete
+        ↓
+Internal Review
+        ↓
+Founder Review
+        ↓
+Business Validation
+        ↓
+Content / Asset Updates
+        ↓
+Final QA
+        ↓
+Deployment
+
+4a — Internal Product Review
+
+Review entire page top → bottom
+
+Check visual rhythm
+
+Check section transitions
+
+Check information hierarchy
+
+Check CTA behaviour
+
+Check smooth scrolling
+
+Check mobile layout
+
+Check placeholder visibility
+
+Check duplicate information
+
+Check copy consistency
+
+Emotional progression target
+
+Hope
+ ↓
+Trust
+ ↓
+Confidence
+ ↓
+Opportunity
+ ↓
+Relief
+ ↓
+Clarity
+ ↓
+Action
+
+4b — Founder Business Validation
+
+Offers
+
+₹78,000 subsidy wording
+
+30-year panel warranty
+
+10-year inverter warranty
+
+5 years free service
+
+Subsidy paperwork support
+
+Loan/financing paperwork support
+
+Any installation warranty
+
+Any additional offers
+
+Business information
+
+Phone number
+
+WhatsApp number
+
+Physical address
+
+Operating areas
+
+Company description
+
+Services actually provided
+
+Assets
+
+Real installation photographs
+
+Logo
+
+Panel manufacturer logos
+
+Inverter manufacturer logos
+
+Testimonials
+
+Certifications/credentials
+
+Copy approval
+
+Founder approves claims
+
+Founder approves wording
+
+Founder approves offers
+
+Founder approves imagery
+
+Founder identifies anything to remove
+
+4c — Content & Asset Finalization
+
+Keep business content centralized:
+
+constants/content.ts
+        +
+assets/
+        ↓
+UI components
+
+Every placeholder must ultimately become:
+
+Replace or Remove
+
+before deployment.
+
+4d — Production QA
+
+Responsive
+
+375px mobile
+
+768px tablet
+
+1280px+ desktop
+
+Accessibility
+
+Semantic HTML
+
+Keyboard navigation
+
+Focus states
+
+Contrast
+
+Alt text
+
+Form labels
+
+Accordion accessibility
+
+Performance
+
+Image optimization
+
+WebP where appropriate
+
+Lazy loading below-fold images
+
+Lighthouse Performance >90 target
+
+Quality
+
+Lighthouse Accessibility >90
+
+Lighthouse Best Practices >90
+
+Lighthouse SEO >90
+
+npm run build
+
+No console errors
+
+No broken anchors
+
+WhatsApp flow verified
+
+5. V1 Definition of Done
+
+Product
+
+Complete page architecture implemented
+
+Responsive across target breakpoints
+
+Visual language consistent
+
+Emotional progression works
+
+Navigation
+
+Home → Hero
+
+Services → Services
+
+Subsidy → Subsidy
+
+How It Works → Process
+
+FAQ → FAQ
+
+All primary CTAs → Contact
+
+Conversion
+
+Contact form works
+
+Name required
+
+Phone required
+
+Structured WhatsApp message generated
+
+WhatsApp opens correctly
+
+WhatsApp FAB works
+
+Content
+
+Founder has reviewed business claims
+
+Founder-approved warranties
+
+Founder-approved offers
+
+Founder-approved contact details
+
+Real assets integrated where available
+
+Unsupported claims removed
+
+Technical
+
+Production build passes
+
+No critical console errors
+
+Lighthouse targets achieved
+
+Accessibility reviewed
+
+Mobile QA completed
+
+Final approval
+
+Founder reviews staging
+
+Founder approves final version
+
+V1 deployed
+
+6. UI Component Strategy
+
+Components remain consumer-driven.
+
+Component
+
+Status
+
+Consumers
+
+Button.tsx
+
+✅
+
+Hero, sections, Contact
+
+Card.tsx
+
+✅
+
+Trust, Services, Subsidy, Process
+
+Badge.tsx
+
+✅
+
+Subsidy
+
+Accordion.tsx
+
+⏳
+
+FAQ
+
+Do not create abstractions just because they might be useful. Build them when the actual UI requires them.
+
+7. Sprint Board
+
+JB POWER V1
+────────────────────────────────
+
+FOUNDATION
+[x] 0 — Foundation
+[x] 1 — Shell & Visual Identity
+[ ] 2 — Infrastructure verification
+
+HOMEPAGE
+[x] 3a — Trust
+[x] 3b — Services
+[x] 3c — Subsidy / Financial Support
+[ ] 3d — How It Works        ← WE ARE HERE
+[ ] 3e — FAQ
+[ ] 3f — Contact / Lead Form
+
+FINALIZATION
+[ ] Internal UX review
+[ ] Founder review
+[ ] Business claim validation
+[ ] Asset collection
+[ ] Content finalization
+[ ] Responsive QA
+[ ] Accessibility QA
+[ ] Lighthouse
+[ ] Final build
+[ ] Founder sign-off
+[ ] DEPLOY V1
+
+Working Rule
+
+The information architecture is now considered stable:
+
+Hero → Trust → Services → Subsidy → Process → FAQ → Contact → Footer
+
+Ideas discovered during development can change copy, imagery, spacing, hierarchy, and visual treatment, but should not casually change the underlying page architecture.
+
+The roadmap is the source of truth for the V1 frontend implementation.
