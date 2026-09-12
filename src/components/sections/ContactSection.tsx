@@ -15,6 +15,8 @@ export default function ContactSection() {
   const [errors, setErrors] = useState<{name?: string; phone?: string; bill?: string}>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
+  const [successMessage, setSuccessMessage] = useState('');
+
   
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -69,6 +71,14 @@ export default function ContactSection() {
         throw new Error('Failed to submit');
       }
       
+      const result = await response.json();
+      // Only override the default frontend message if it's a duplicate (200 OK)
+      if (response.status === 200 && result.message) {
+        setSuccessMessage(result.message);
+      } else {
+        setSuccessMessage(''); // Use default
+      }
+      
       setSubmitStatus('success');
       setName('');
       setPhone('');
@@ -100,7 +110,7 @@ export default function ContactSection() {
                   </div>
                   <h3 className="text-2xl font-bold text-jb-navy mb-2">Thank you!</h3>
                   <p className="text-jb-charcoal/80">
-                    We've received your details. Our team will get back to you shortly.
+                    {successMessage || "We've received your details. Our team will get back to you shortly."}
                   </p>
                   <Button 
                     variant="secondary" 
@@ -145,9 +155,17 @@ export default function ContactSection() {
                       </div>
                       <input
                         type="tel"
+                        inputMode="numeric"
+                        pattern="[0-9]*"
+                        maxLength={10}
                         id="phone"
                         value={phone}
-                        onChange={(e) => setPhone(e.target.value)}
+                        onChange={(e) => {
+                          const digitsOnly = e.target.value.replace(/\D/g, '');
+                          if (digitsOnly.length <= 10) {
+                            setPhone(digitsOnly);
+                          }
+                        }}
                         placeholder={CONTACT.phonePlaceholder}
                         className={`flex-1 min-w-0 w-full px-4 py-3 rounded-r-lg border border-l-0 focus:ring-2 focus:ring-jb-gold focus:border-jb-gold outline-none transition-colors ${errors.phone ? 'border-red-500' : 'border-gray-200'}`}
                         disabled={isSubmitting}
