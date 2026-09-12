@@ -64,6 +64,16 @@ export const TRUST = {
       id: 1, 
       name: "Jio Johnson", 
       text: "Unfortunately my earlier on-grid solar system had rejection, and due to lack of proper support and guidance, I was almost ready to drop the entire plan. That's when JB Powerline's pre-installation support team stepped in and provided the required support to ease my solar plan. Now my plan is back ON. I didn't just recommend JB Powerline's; I actually converted my known leads as their sales. Simplify your solar dreams with JB Powerline's." 
+    },
+    {
+      id: 2,
+      name: "B. Shibu",
+      text: "The transition to solar was smooth and hassle-free. JB Power handled everything professionally from start to finish."
+    },
+    {
+      id: 3,
+      name: "Ajith Kumar",
+      text: "Excellent service and great support. They explained the entire process clearly and made the installation seamless."
     }
   ]
 };
