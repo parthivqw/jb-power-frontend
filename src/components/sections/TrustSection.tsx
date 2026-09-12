@@ -2,10 +2,10 @@ import Card from '../ui/Card';
 import { TRUST } from '../../constants/content';
 
 // Import generated trust images
-import imgPanel from '../../assets/images/trust/panel-warranty.jpg';
-import imgInverter from '../../assets/images/trust/inverter-warranty.jpg';
-import imgPaperwork from '../../assets/images/trust/paperwork-support.jpg';
-import imgService from '../../assets/images/trust/free-service.jpg';
+import imgPanel from '../../assets/images/installations-real/rooftop-solar-array.webp';
+import imgInverter from '../../assets/images/installations-real/inverter-installation-grey.webp';
+import imgPaperwork from '../../assets/images/generated-v2/consultation.webp';
+import imgService from '../../assets/images/generated-v2/installation.webp';
 import { useScrollReveal } from '../../hooks/useScrollReveal';
 
 const trustImages = [imgPanel, imgInverter, imgPaperwork, imgService];

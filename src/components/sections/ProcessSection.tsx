@@ -4,9 +4,9 @@ import Button from '../ui/Button';
 import { PROCESS } from '../../constants/content';
 import { useScrollReveal } from '../../hooks/useScrollReveal';
 
-import imgConsultation from '../../assets/images/process/01-consultation.jpg';
+import imgConsultation from '../../assets/images/generated-v2/consultation.webp';
 import imgAssessment from '../../assets/images/process/02-assessment-design.jpg';
-import imgInstallation from '../../assets/images/process/03-installation.jpg';
+import imgInstallation from '../../assets/images/generated-v2/installation.webp';
 import imgCommissioning from '../../assets/images/process/04-commissioning-support.jpg';
 
 const processImages = [imgConsultation, imgAssessment, imgInstallation, imgCommissioning];
@@ -68,7 +68,7 @@ export default function ProcessSection() {
                           {step.title}
                         </h3>
                         {/* Desktop always shows active text, mobile collapses inactive text */}
-                        <div className={`overflow-hidden transition-all duration-500 motion-reduce:transition-none ${isActive ? 'max-h-40 opacity-100 mt-2' : 'max-h-0 opacity-0 lg:max-h-40 lg:opacity-100 lg:mt-2 hidden lg:block'}`}>
+                        <div className={`overflow-hidden transition-all duration-500 motion-reduce:transition-none ${isActive ? 'max-h-40 opacity-100 mt-2' : 'max-h-0 opacity-0 lg:max-h-40 lg:opacity-100 lg:mt-2'}`}>
                           <p className="text-jb-charcoal/80 text-sm md:text-base leading-relaxed">
                             {step.description}
                           </p>

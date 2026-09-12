@@ -26,10 +26,11 @@ export const HERO = {
   headlineAccent: "With Solar Energy",
   subheadline: "End-to-end solar installations for residential properties. We eliminate your electricity bills while handling all government subsidies seamlessly.",
   primaryCta: "Get Free Consultation",
-  secondaryCta: "Check Your Subsidy",
+  secondaryCta: "Subsidy Info",
   trustIndicators: [
-    { label: "[PLACEHOLDER: MNRE Empanelled]" },
-    { label: "30-Year Panel Warranty" }
+    { label: "30-Year Panel Performance Warranty" },
+    { label: "10-Year Inverter Warranty" },
+    { label: "5 Years Free Service" }
   ]
 };
 
@@ -57,22 +58,12 @@ export const TRUST = {
     { name: "[PLACEHOLDER: Brand Logo 1]" },
     { name: "[PLACEHOLDER: Brand Logo 2]" }
   ],
-  // DEMO CONTENT — replace with founder-verified testimonials before public launch.
+  // Authentic Customer Experience
   testimonials: [
     { 
       id: 1, 
-      name: "Rajesh Menon — Kochi", 
-      text: "The team made the entire transition to solar incredibly straightforward. I really appreciated how they managed all the paperwork and explained every step of the installation clearly." 
-    },
-    { 
-      id: 2, 
-      name: "Sneha Desai — Ahmedabad", 
-      text: "We were hesitant about the initial setup, but their consultation gave us complete clarity. The installation was clean, professional, and the post-installation support has been reassuring." 
-    },
-    { 
-      id: 3, 
-      name: "Vikram Reddy — Hyderabad", 
-      text: "Having someone guide us through the financial aspects and handle the technical details was a huge relief. The system looks great on the roof and the overall service was excellent." 
+      name: "Jio Johnson", 
+      text: "Unfortunately my earlier on-grid solar system had rejection, and due to lack of proper support and guidance, I was almost ready to drop the entire plan. That's when JB Powerline's pre-installation support team stepped in and provided the required support to ease my solar plan. Now my plan is back ON. I didn't just recommend JB Powerline's; I actually converted my known leads as their sales. Simplify your solar dreams with JB Powerline's." 
     }
   ]
 };

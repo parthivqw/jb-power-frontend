@@ -3,7 +3,7 @@ import Card from '../ui/Card';
 import Button from '../ui/Button';
 import { CONTACT, generateContactFormMessage, generateWhatsAppLink } from '../../constants/content';
 import { useScrollReveal } from '../../hooks/useScrollReveal';
-import contactImage from '../../assets/images/contact/consultation.jpg';
+import contactImage from '../../assets/images/generated-v2/consultation.webp';
 
 export default function ContactSection() {
   const revealRef = useScrollReveal<HTMLDivElement>();

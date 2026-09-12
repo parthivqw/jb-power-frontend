@@ -4,10 +4,10 @@ import { SERVICES } from '../../constants/content';
 import { useScrollReveal } from '../../hooks/useScrollReveal';
 
 // Import generated images
-import imgResidential from '../../assets/images/services/residential.jpg';
-import imgCommercial from '../../assets/images/services/commercial.jpg';
-import imgHybrid from '../../assets/images/services/hybrid.jpg';
-import imgInstallation from '../../assets/images/services/installation.jpg';
+import imgResidential from '../../assets/images/generated-v2/residential-solar.webp';
+import imgCommercial from '../../assets/images/generated-v2/commercial-solar.webp';
+import imgHybrid from '../../assets/images/installations-real/inverter-installation-blue.webp';
+import imgInstallation from '../../assets/images/generated-v2/services-installation.webp';
 
 const serviceImages = [imgResidential, imgCommercial, imgHybrid, imgInstallation];
 
@@ -69,7 +69,7 @@ export default function ServicesSection() {
           <p className="text-jb-charcoal/80 font-medium mb-6">
             {SERVICES.ctaMessage}
           </p>
-          <a href="#contact">
+          <a href="#contact" className="inline-block">
             <Button size="lg">{SERVICES.cta}</Button>
           </a>
         </div>
